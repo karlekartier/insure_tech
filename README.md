@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Insure Tech Services Pvt Ltd - Official Website
 
-## Getting Started
+## 🚀 Project Overview
+A top-tier, high-performance, and SEO-optimized corporate digital ecosystem for **Insure Tech Services Pvt Ltd**, specializing in:
+- **Medical Billing & Revenue Cycle Management (RCM)**
+- **XML Data Engineering, Validation & Integration**
+- **APDF & Intelligent Document Processing**
 
-First, run the development server:
+---
 
+## 🛠 Tech Stack
+- **Framework:** Next.js 15+ (App Router) with TypeScript
+- **Styling:** Tailwind CSS (Dark Mode enabled)
+- **Design System:** "Tech-Forward Reliability" emerald green brand palette (`#73cb71`, `#4d915d`, `#061b12`)
+- **Icons:** Lucide-React (2px stroke weight)
+- **Animations:** Framer Motion (Hardware-accelerated 60fps SVG motion)
+- **Interactive Visuals:** High-tech SVG Hero Shield Ingestion, Interactive Claim-to-Payment Pipeline, Data-to-XML Pipeline & Studio, APDF Document Lifecycle Visualizer
+- **Interactive Forms:** Multi-Step Service Request (RFQ) Wizard with reCAPTCHA v3 badge simulation and canvas confetti
+- **Theme Switcher:** Day/Night mode switch (Sun/Moon Lucide icons) with localStorage persistence
+- **SEO & Structured Data:** Schema.org JSON-LD (`Organization`, `Service`) + OpenGraph metadata per page
+
+---
+
+## 📁 Website Sitemap & Structure
+
+| Route | Page | Key Interactive Capabilities |
+| :--- | :--- | :--- |
+| `/` | **Home (The Hook)** | High-tech SVG shield data stream, value proposition, core statistics, service cards with hover micro-animations, partner trust bar (ICICI Lombard). |
+| `/medical-billing` | **Medical Billing & RCM** | Interactive 8-stage "Claim to Payment" flow chart, AAPC coding standards, denial appeals pipeline, quality measures dashboard, and FAQs. |
+| `/xml-services` | **XML & Data Services** | Animated data-to-XML SVG pipeline, live interactive Source-to-XML transformer studio, 10 sub-service catalog, enterprise use cases, and FAQs. |
+| `/apdf-services` | **APDF & Document Processing** | 5-stage document lifecycle visualizer, OCR data extraction, layout formatting, automated indexing, business benefits, and FAQs. |
+| `/contact` | **Contact & RFQ** | 4-step responsive Request for Services form, volume & turnaround calibrator, reCAPTCHA v3 badge, direct phone/email/office channels. |
+| `/api/contact` | **Contact API** | Server-side validation route returning unique reference IDs (e.g., `ITS-784912`). |
+
+---
+
+## 🏗 Getting Started
+
+### 1. Install Dependencies
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Run the Development Server
+```bash
+npm run dev
+```
+Open [http://localhost:3000](http://localhost:3000) with your browser to view the application.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. Build for Production
+```bash
+npm run build
+npm run start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## ✅ Quality Checklist
+- [x] Full mobile & desktop responsiveness
+- [x] Day/Night toggle functional with persistent state
+- [x] SVG Vector animations smooth at 60fps
+- [x] Multi-step Contact RFQ form with validation & reCAPTCHA v3 simulation
+- [x] Schema.org JSON-LD structured data on all pages
+- [x] Zero TypeScript or build errors
+- [x] High-resolution client brochure assets integrated
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📄 License & Attribution
+© 2026 Insure Tech Services Pvt Ltd. All rights reserved. Accuracy. Efficiency. Reliability.
