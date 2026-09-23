@@ -1,7 +1,9 @@
 @import "tailwindcss";
 
 @layer base {
-  :root {
+  :root,
+  .light,
+  [data-theme="light"] {
     --bg-page: #f8fafc;
     --bg-surface: #ffffff;
     --bg-navy: #19375c;
@@ -9,7 +11,7 @@
     --bg-card: #ffffff;
     --bg-card-hover: #ffffff;
     --text-primary: #0f172a;
-    --text-secondary: #475569;
+    --text-secondary: #334155;
     --text-muted: #64748b;
     --border-subtle: #e2e8f0;
     --border-accent: rgba(25, 55, 92, 0.18);
@@ -21,6 +23,29 @@
     --brand-green-subtle: rgba(90, 173, 69, 0.12);
     --brand-glow: rgba(25, 55, 92, 0.08);
     --vector-line: rgba(25, 55, 92, 0.05);
+  }
+
+  .dark,
+  [data-theme="dark"] {
+    --bg-page: #0a121e;
+    --bg-surface: #112136;
+    --bg-navy: #19375c;
+    --bg-navy-dark: #122842;
+    --bg-card: #112136;
+    --bg-card-hover: #162a45;
+    --text-primary: #f8fafc;
+    --text-secondary: #cbd5e1;
+    --text-muted: #94a3b8;
+    --border-subtle: #1e293b;
+    --border-accent: rgba(246, 127, 0, 0.3);
+    --brand-navy: #19375c;
+    --brand-navy-light: #254d7d;
+    --brand-orange: #f67f00;
+    --brand-orange-hover: #e57200;
+    --brand-green: #5aad45;
+    --brand-green-subtle: rgba(90, 173, 69, 0.12);
+    --brand-glow: rgba(25, 55, 92, 0.2);
+    --vector-line: rgba(255, 255, 255, 0.05);
   }
 }
 
@@ -62,10 +87,17 @@ body {
 /* Premium InsureTec Style Cards */
 .insuretec-card {
   background: #ffffff;
+  color: #0f172a;
   border: 1px solid var(--border-subtle);
   border-radius: 1.25rem;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+}
+
+.dark .insuretec-card {
+  background: #112136;
+  color: #f8fafc;
+  border-color: #1e293b;
 }
 
 .insuretec-card:hover {

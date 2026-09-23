@@ -4,11 +4,21 @@ export async function POST(request: Request) {
   try {
     const body = await request.json();
 
-    const { fullName, email, phone, organization, services } = body;
+    const {
+      fullName,
+      email,
+      phone,
+      location,
+      insuranceCategory,
+      organization,
+      services,
+      category,
+      message,
+    } = body;
 
-    if (!fullName || !email || !phone || !organization) {
+    if (!fullName || !email || !phone) {
       return NextResponse.json(
-        { success: false, message: "Missing required contact fields." },
+        { success: false, message: "Missing required contact fields (fullName, email, phone)." },
         { status: 400 }
       );
     }
@@ -21,8 +31,11 @@ export async function POST(request: Request) {
     console.log(`[Service Request Logged] ${referenceId}:`, {
       fullName,
       email,
-      organization,
-      services,
+      phone,
+      location: location || "Not specified",
+      insuranceCategory: insuranceCategory || category || services || "General Inquiry",
+      message: message || "No additional message",
+      organization: organization || "Individual",
       timestamp: new Date().toISOString(),
     });
 
