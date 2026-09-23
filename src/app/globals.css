@@ -4,33 +4,23 @@
   :root {
     --bg-page: #f8fafc;
     --bg-surface: #ffffff;
-    --bg-card: rgba(255, 255, 255, 0.85);
-    --bg-card-hover: rgba(255, 255, 255, 0.98);
+    --bg-navy: #19375c;
+    --bg-navy-dark: #122842;
+    --bg-card: #ffffff;
+    --bg-card-hover: #ffffff;
     --text-primary: #0f172a;
     --text-secondary: #475569;
     --text-muted: #64748b;
     --border-subtle: #e2e8f0;
-    --border-glow: rgba(77, 145, 93, 0.25);
-    --brand-primary: #4d915d;
-    --brand-emerald: #73cb71;
-    --brand-dark: #0a291b;
-    --brand-glow: rgba(115, 203, 113, 0.2);
-  }
-
-  .dark {
-    --bg-page: #04100a;
-    --bg-surface: #071a12;
-    --bg-card: rgba(11, 46, 32, 0.45);
-    --bg-card-hover: rgba(15, 58, 41, 0.65);
-    --text-primary: #f8fafc;
-    --text-secondary: #cbd5e1;
-    --text-muted: #94a3b8;
-    --border-subtle: rgba(115, 203, 113, 0.15);
-    --border-glow: rgba(115, 203, 113, 0.4);
-    --brand-primary: #73cb71;
-    --brand-emerald: #76c876;
-    --brand-dark: #05160e;
-    --brand-glow: rgba(115, 203, 113, 0.28);
+    --border-accent: rgba(25, 55, 92, 0.18);
+    --brand-navy: #19375c;
+    --brand-navy-light: #254d7d;
+    --brand-orange: #f67f00;
+    --brand-orange-hover: #e57200;
+    --brand-green: #5aad45;
+    --brand-green-subtle: rgba(90, 173, 69, 0.12);
+    --brand-glow: rgba(25, 55, 92, 0.08);
+    --vector-line: rgba(25, 55, 92, 0.05);
   }
 }
 
@@ -39,84 +29,136 @@ body {
   color: var(--text-primary);
   font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   overflow-x: hidden;
-  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Glassmorphism Styles */
-.glass-panel {
-  background: var(--bg-card);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+/* InsureTec Signature Vertical Background Lines */
+.vector-lines-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.vector-lines {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  height: 100%;
+  padding: 0 2rem;
+}
+
+.vector-line {
+  width: 1px;
+  height: 100%;
+  background: var(--vector-line);
+}
+
+/* Premium InsureTec Style Cards */
+.insuretec-card {
+  background: #ffffff;
   border: 1px solid var(--border-subtle);
-  border-radius: 1rem;
-}
-
-.glass-panel-hover {
+  border-radius: 1.25rem;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
 }
 
-.glass-panel-hover:hover {
-  background: var(--bg-card-hover);
-  border-color: var(--border-glow);
-  box-shadow: 0 12px 32px -8px var(--brand-glow);
+.insuretec-card:hover {
+  border-color: var(--border-accent);
+  box-shadow: 0 16px 32px -6px rgba(25, 55, 92, 0.12);
+  transform: translateY(-3px);
+}
+
+/* High Converting CTA Pill Buttons */
+.btn-orange {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.6rem;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #ffffff !important;
+  background: linear-gradient(135deg, #f67f00 0%, #e57200 100%);
+  box-shadow: 0 6px 20px -2px rgba(246, 127, 0, 0.4);
+  transition: all 0.25s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-orange:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -2px rgba(246, 127, 0, 0.5);
+  filter: brightness(1.05);
+}
+
+.btn-navy {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.6rem;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #ffffff !important;
+  background: linear-gradient(135deg, #19375c 0%, #122842 100%);
+  box-shadow: 0 6px 20px -2px rgba(25, 55, 92, 0.35);
+  transition: all 0.25s ease;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-navy:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -2px rgba(25, 55, 92, 0.45);
+  background: linear-gradient(135deg, #204573 0%, #153050 100%);
+}
+
+.btn-outline-navy {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.6rem;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #19375c;
+  background: transparent;
+  border: 1.5px solid #19375c;
+  transition: all 0.25s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-outline-navy:hover {
+  background: rgba(25, 55, 92, 0.06);
   transform: translateY(-2px);
 }
 
-/* Brand Gradient Texts */
-.text-gradient-emerald {
-  background: linear-gradient(135deg, #73cb71 0%, #4d915d 60%, #347545 100%);
+/* Subtle Gradient Headings */
+.text-gradient-navy {
+  background: linear-gradient(135deg, #19375c 0%, #2c5282 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.text-gradient-cyber {
-  background: linear-gradient(135deg, #ffffff 20%, #73cb71 80%, #4d915d 100%);
+.text-gradient-gold {
+  background: linear-gradient(135deg, #f67f00 0%, #ffb703 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* Custom High-Tech Grid & Glow */
-.tech-grid {
-  background-size: 40px 40px;
-  background-image: 
-    linear-gradient(to right, rgba(115, 203, 113, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(115, 203, 113, 0.05) 1px, transparent 1px);
-}
-
-.tech-grid-dense {
-  background-size: 24px 24px;
-  background-image: 
-    linear-gradient(to right, rgba(115, 203, 113, 0.08) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(115, 203, 113, 0.08) 1px, transparent 1px);
-}
-
-/* Animated Data Stream Keyframes */
-@keyframes pulseGlow {
-  0%, 100% {
-    opacity: 0.4;
-    filter: drop-shadow(0 0 10px rgba(115, 203, 113, 0.4));
-  }
-  50% {
-    opacity: 0.9;
-    filter: drop-shadow(0 0 25px rgba(115, 203, 113, 0.8));
-  }
-}
-
-.animate-pulse-glow {
-  animation: pulseGlow 4s ease-in-out infinite;
-}
-
-@keyframes streamFlow {
-  0% { stroke-dashoffset: 200; }
-  100% { stroke-dashoffset: 0; }
-}
-
-.data-flow-path {
-  stroke-dasharray: 10, 10;
-  animation: streamFlow 5s linear infinite;
-}
-
-/* Scrollbar customization */
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -124,9 +166,6 @@ body {
   background: var(--bg-page);
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(115, 203, 113, 0.3);
+  background: #cbd5e1;
   border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(115, 203, 113, 0.6);
 }

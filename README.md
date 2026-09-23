@@ -68,3 +68,6 @@ npm run start
 
 ## 📄 License & Attribution
 © 2026 Insure Tech Services Pvt Ltd. All rights reserved. Accuracy. Efficiency. Reliability.
+
+
+https://karlekartier.github.io/insure_tech/

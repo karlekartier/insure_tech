@@ -18,33 +18,35 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://insuretechservices.com"),
   title: {
-    default: "Insure Tech Services Pvt Ltd | Medical Billing, XML & APDF Solutions",
+    default: "Insure Tech Services Pvt Ltd | IRDAI Certified Insurance Advisor",
     template: "%s | Insure Tech Services Pvt Ltd",
   },
   description:
-    "High-performance digital ecosystem specializing in Healthcare Medical Billing & Revenue Cycle Management (RCM), structured XML data conversion, and APDF document processing.",
+    "Leading IRDAI certified insurance advisor and broking partner. Partnered with 15+ top insurance companies for Motor, Health, Life, Fire, and Corporate insurance with 99% claim settlement success.",
   keywords: [
-    "Medical Billing Services",
-    "Revenue Cycle Management",
-    "RCM healthcare",
-    "Claims Processing",
-    "Denial Management",
-    "XML Data Conversion",
-    "XML Validation and Integration",
-    "Structured Data Services",
-    "APDF Document Processing",
-    "OCR Document Automation",
     "Insure Tech Services",
+    "Insurance Advisor Tamil Nadu",
+    "Motor Insurance Sriperumbudur",
+    "Health Insurance Comparison",
+    "Life Insurance Plans",
+    "Corporate Fire Insurance",
+    "Commercial Vehicle Insurance",
+    "IRDAI Certified Advisor",
+    "Tata AIG",
+    "HDFC ERGO",
+    "ICICI Lombard",
+    "Bajaj Allianz",
+    "Care Health Insurance",
   ],
   authors: [{ name: "Insure Tech Services Pvt Ltd" }],
   creator: "Insure Tech Services Pvt Ltd",
   openGraph: {
     type: "website",
-    locale: "en_US",
+    locale: "en_IN",
     url: "https://insuretechservices.com",
-    title: "Insure Tech Services Pvt Ltd - Accuracy. Efficiency. Reliability.",
+    title: "Insure Tech Services Pvt Ltd - The New Standard in Insurance",
     description:
-      "Precision Medical Billing, Enterprise XML Conversion, and APDF Document Processing Solutions.",
+      "IRDAI Certified Authorized Insurance Advisor. Compare & buy Motor, Health, Life & Corporate Insurance from 15+ leading companies.",
     siteName: "Insure Tech Services",
   },
   icons: {
@@ -60,23 +62,39 @@ export default function RootLayout({
 }) {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": "InsuranceAgency",
     name: "Insure Tech Services Pvt Ltd",
     url: "https://insuretechservices.com",
     logo: "https://insuretechservices.com/logo.svg",
     description:
-      "Enterprise healthcare revenue cycle management, XML structured data services, and automated APDF document processing.",
-    contactPoint: {
-      "@type": "ContactPoint",
-      telephone: "+91-44-4890-2300",
-      contactType: "customer service",
-      availableLanguage: ["English"],
+      "IRDAI Certified Authorized Insurance Advisor providing comprehensive Motor, Health, Life, and Corporate Insurance solutions across India.",
+    telephone: "+91-91500-05721",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Selvashakthi Complex, 228/2 Malaipattu Village",
+      addressLocality: "Sriperumbudur",
+      addressRegion: "Tamil Nadu",
+      postalCode: "601301",
+      addressCountry: "IN",
     },
-    sameAs: [],
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "09:00",
+        closes: "18:00",
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: "Saturday",
+        opens: "09:00",
+        closes: "14:00",
+      },
+    ],
   };
 
   return (
-    <html lang="en" suppressHydrationWarning className="dark">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"
@@ -84,10 +102,21 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} min-h-screen flex flex-col antialiased selection:bg-emerald-500/20 selection:text-emerald-400`}
+        className={`${geistSans.variable} ${geistMono.variable} min-h-screen flex flex-col antialiased selection:bg-orange-500/20 selection:text-orange-400`}
       >
         <ThemeProvider>
-          <div className="flex flex-col min-h-screen">
+          {/* Subtle vector background lines across entire layout matching insuretec.com */}
+          <div className="vector-lines-container">
+            <div className="vector-lines">
+              <div className="vector-line" />
+              <div className="vector-line hidden sm:block" />
+              <div className="vector-line" />
+              <div className="vector-line hidden md:block" />
+              <div className="vector-line" />
+            </div>
+          </div>
+
+          <div className="flex flex-col min-h-screen relative z-10">
             <Navbar />
             <main className="flex-1">{children}</main>
             <Footer />
