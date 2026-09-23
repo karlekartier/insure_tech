@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { getAssetPath } from "@/lib/assets";
 import {
   ShieldCheck,
   Phone,
@@ -30,7 +31,7 @@ export function Footer() {
             <Link href="/" className="inline-block">
               <div className="relative h-12 w-52">
                 <Image
-                  src="/logo.svg"
+                  src={getAssetPath("/logo.svg")}
                   alt="Insure Tech Services Pvt Ltd"
                   fill
                   className="object-contain brightness-110"

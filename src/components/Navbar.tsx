@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { getAssetPath } from "@/lib/assets";
 import {
   Menu,
   X,
@@ -142,7 +143,7 @@ export function Navbar() {
             <Link href="/" className="flex items-center gap-3 focus:outline-none group">
               <div className="relative h-11 w-48 sm:w-56 transition-transform duration-300 group-hover:scale-[1.02]">
                 <Image
-                  src="/logo.svg"
+                  src={getAssetPath("/logo.svg")}
                   alt="Insure Tech Services Logo"
                   fill
                   priority

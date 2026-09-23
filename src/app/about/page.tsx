@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { getAssetPath } from "@/lib/assets";
 import {
   ShieldCheck,
   Award,
@@ -96,7 +97,7 @@ export default function AboutPage() {
             <div className="lg:col-span-5 relative">
               <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200 aspect-[4/5]">
                 <Image
-                  src="/assets/who1.jpg"
+                  src={getAssetPath("/assets/who1.jpg")}
                   alt="Insure Tech Office and Advisory Team"
                   fill
                   className="object-cover"

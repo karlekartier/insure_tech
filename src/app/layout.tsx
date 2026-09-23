@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/context/ThemeContext";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { getAssetPath } from "@/lib/assets";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -50,8 +51,8 @@ export const metadata: Metadata = {
     siteName: "Insure Tech Services",
   },
   icons: {
-    icon: "/logo.svg",
-    apple: "/logo.svg",
+    icon: getAssetPath("/logo.svg"),
+    apple: getAssetPath("/logo.svg"),
   },
 };
 

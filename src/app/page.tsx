@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { getAssetPath } from "@/lib/assets";
 import { PartnerLogosMarquee } from "@/components/PartnerLogosMarquee";
 import { InteractiveQuoteEstimator } from "@/components/InteractiveQuoteEstimator";
 import { SolutionsTabViewer } from "@/components/SolutionsTabViewer";
@@ -273,7 +274,7 @@ export default function HomePage() {
             <div className="lg:col-span-6 relative">
               <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-200 aspect-[4/3]">
                 <Image
-                  src="/assets/home1.jpg"
+                  src={getAssetPath("/assets/home1.jpg")}
                   alt="Insure Tech Professional Insurance Advisors"
                   fill
                   className="object-cover"

@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import { getAssetPath } from "@/lib/assets";
 
 interface Partner {
   name: string;
@@ -11,14 +12,14 @@ interface Partner {
 }
 
 const PARTNERS: Partner[] = [
-  { name: "Tata AIG", category: "General & Motor", logo: "/assets/tata.jpeg", claimRate: "98.9%" },
-  { name: "HDFC ERGO", category: "Health & Motor", logo: "/assets/ergo.png", claimRate: "99.1%" },
-  { name: "ICICI Lombard", category: "Motor & Health", logo: "/assets/lombard.png", claimRate: "99.0%" },
-  { name: "Bajaj Allianz", category: "All General", logo: "/assets/Bajaj.png", claimRate: "98.7%" },
-  { name: "Cholamandalam MS", category: "Commercial & Motor", logo: "/assets/chola.png", claimRate: "98.5%" },
-  { name: "Kotak Mahindra", category: "Life & General", logo: "/assets/kotak.jpg", claimRate: "98.8%" },
-  { name: "SBI General", category: "Fire & Health", logo: "/assets/sbi.png", claimRate: "98.6%" },
-  { name: "Care Insurance", category: "Health & Critical Illness", logo: "/assets/care.png", claimRate: "99.3%" },
+  { name: "Tata AIG", category: "General & Motor", logo: getAssetPath("/assets/tata.jpeg"), claimRate: "98.9%" },
+  { name: "HDFC ERGO", category: "Health & Motor", logo: getAssetPath("/assets/ergo.png"), claimRate: "99.1%" },
+  { name: "ICICI Lombard", category: "Motor & Health", logo: getAssetPath("/assets/lombard.png"), claimRate: "99.0%" },
+  { name: "Bajaj Allianz", category: "All General", logo: getAssetPath("/assets/Bajaj.png"), claimRate: "98.7%" },
+  { name: "Cholamandalam MS", category: "Commercial & Motor", logo: getAssetPath("/assets/chola.png"), claimRate: "98.5%" },
+  { name: "Kotak Mahindra", category: "Life & General", logo: getAssetPath("/assets/kotak.jpg"), claimRate: "98.8%" },
+  { name: "SBI General", category: "Fire & Health", logo: getAssetPath("/assets/sbi.png"), claimRate: "98.6%" },
+  { name: "Care Insurance", category: "Health & Critical Illness", logo: getAssetPath("/assets/care.png"), claimRate: "99.3%" },
 ];
 
 export function PartnerLogosMarquee() {
