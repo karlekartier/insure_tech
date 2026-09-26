@@ -90,6 +90,15 @@ export function Navbar() {
   }, []);
 
   const isServicesActive = pathname.startsWith("/services");
+  const isDedicatedPortalOrSubsite =
+    pathname === "/" ||
+    ["/insurance", "/it-services", "/publication-support", "/medical-billing"].some((p) =>
+      pathname.startsWith(p)
+    );
+
+  if (isDedicatedPortalOrSubsite) {
+    return null;
+  }
 
   return (
     <>

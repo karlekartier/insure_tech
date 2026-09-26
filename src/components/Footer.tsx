@@ -1,6 +1,9 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { getAssetPath } from "@/lib/assets";
 import {
   ShieldCheck,
@@ -15,6 +18,17 @@ import {
 } from "lucide-react";
 
 export function Footer() {
+  const pathname = usePathname();
+  const isDedicatedPortalOrSubsite =
+    pathname === "/" ||
+    ["/insurance", "/it-services", "/publication-support", "/medical-billing"].some((p) =>
+      pathname.startsWith(p)
+    );
+
+  if (isDedicatedPortalOrSubsite) {
+    return null;
+  }
+
   return (
     <footer className="relative bg-[#0d1827] text-slate-300 pt-16 pb-10 border-t border-slate-800/80 overflow-hidden">
       {/* Decorative subtle ambient lights */}
