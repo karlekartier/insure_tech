@@ -171,15 +171,15 @@ export function ServiceSwitcher({
             title="Return to Main Portal Gateway"
           >
             <LayoutGrid className="w-3.5 h-3.5 text-emerald-400" />
-            <span className="hidden xs:inline">Main Portal</span>
-            <span className="xs:hidden">Portal</span>
+            <span className="hidden sm:inline">Main Portal</span>
+            <span className="sm:hidden">Portal</span>
           </Link>
 
-          <span className="text-white/20 hidden md:inline">|</span>
+          <span className="text-white/20 hidden sm:inline">|</span>
 
-          <span className="text-slate-400 hidden lg:inline-flex items-center gap-1.5 text-xs">
+          <span className="text-slate-400 hidden md:inline-flex items-center gap-1.5 text-xs">
             <Sparkles className="w-3 h-3 text-emerald-400" />
-            <span>Select Specialized Division:</span>
+            <span>Select Division:</span>
           </span>
         </div>
 

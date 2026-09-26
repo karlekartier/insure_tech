@@ -88,6 +88,9 @@ export interface ServiceWebsiteProps {
   testimonials: CaseStudyItem[];
   faqs: FaqItem[];
   contactPreselectedService: string;
+  contactTitle?: string;
+  contactSubtitle?: string;
+  extraSections?: React.ReactNode;
 }
 
 export function ServiceWebsiteLayout({
@@ -118,6 +121,9 @@ export function ServiceWebsiteLayout({
   testimonials,
   faqs,
   contactPreselectedService,
+  contactTitle,
+  contactSubtitle,
+  extraSections,
 }: ServiceWebsiteProps) {
   // Theme styling definitions
   const themeStyles = {
@@ -268,7 +274,7 @@ export function ServiceWebsiteLayout({
             <div className="flex items-center gap-2 sm:gap-3">
               <a
                 href="tel:9150005721"
-                className="hidden sm:inline-flex items-center gap-1.5 text-xs font-bold text-slate-700 hover:text-slate-900 px-3 py-2 rounded-lg hover:bg-slate-100 transition-colors"
+                className="hidden xl:inline-flex items-center gap-1.5 text-xs font-bold text-slate-700 hover:text-slate-900 px-3 py-2 rounded-lg hover:bg-slate-100 transition-colors"
               >
                 <PhoneCall className="w-3.5 h-3.5 text-slate-500" />
                 <span>+91 91500 05721</span>
@@ -510,6 +516,9 @@ export function ServiceWebsiteLayout({
         </div>
       </section>
 
+      {/* Optional Injected Specialized Division Interactive Sections */}
+      {extraSections && <div className="w-full">{extraSections}</div>}
+
       {/* 5. INTERACTIVE ESTIMATOR SECTION */}
       <section
         id="estimator"
@@ -708,10 +717,11 @@ export function ServiceWebsiteLayout({
                 Division Direct Consultation
               </span>
               <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-                Start Your Project with InsureTech
+                {contactTitle || "Start Your Project with InsureTech"}
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Connect with our certified specialists in {divisionTitle}. We provide complete proposals and cost estimates within 24 hours.
+                {contactSubtitle ||
+                  `Connect with our certified specialists in ${divisionTitle}. We provide complete proposals and cost estimates within 24 hours.`}
               </p>
 
               <div className="space-y-2 pt-2 text-xs text-slate-700">
