@@ -1,10 +1,9 @@
 /**
- * Asset path helper for Next.js static export deployed on GitHub Pages.
- * Handles subpath (e.g. /insure_tech) in production and root (/) in local development.
+ * Asset path helper for Next.js.
+ * Handles subpath (e.g. /insure_tech) when deployed on GitHub Pages,
+ * and root (/) in local development and on platforms like Vercel.
  */
-export const BASE_PATH =
-  process.env.NEXT_PUBLIC_BASE_PATH ??
-  (process.env.NODE_ENV === "production" ? "/insure_tech" : "");
+export const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 export function getAssetPath(path: string): string {
   if (!path) return "";
