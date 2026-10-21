@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { getAssetPath } from "@/lib/assets";
-import { ServiceSwitcher, SERVICES_CONFIG } from "@/components/ServiceSwitcher";
+import { SERVICES_CONFIG } from "@/components/ServiceSwitcher";
 import {
   ShieldCheck,
   PhoneCall,
@@ -71,6 +71,9 @@ export interface ServiceWebsiteProps {
   heroCtaText: string;
   heroSecondaryCtaText?: string;
   heroStats: { value: string; label: string }[];
+  heroImage?: string;
+  heroImageAlt?: string;
+  heroImageBadge?: string;
   capabilitiesTitle: string;
   capabilitiesSubtitle: string;
   capabilities: CapabilityItem[];
@@ -80,9 +83,9 @@ export interface ServiceWebsiteProps {
   workflowTitle: string;
   workflowSubtitle: string;
   workflowSteps: WorkflowStage[];
-  whyChooseUsTitle: string;
-  whyChooseUsSubtitle: string;
-  whyChooseUsPoints: { title: string; desc: string; icon: LucideIcon }[];
+  whyChooseUsTitle?: string;
+  whyChooseUsSubtitle?: string;
+  whyChooseUsPoints?: { title: string; desc: string; icon: LucideIcon }[];
   testimonialsTitle: string;
   testimonialsSubtitle: string;
   testimonials: CaseStudyItem[];
@@ -106,6 +109,9 @@ export function ServiceWebsiteLayout({
   heroCtaText,
   heroSecondaryCtaText = "Try Interactive Calculator",
   heroStats,
+  heroImage,
+  heroImageAlt,
+  heroImageBadge,
   capabilitiesTitle,
   capabilitiesSubtitle,
   capabilities,
@@ -207,10 +213,7 @@ export function ServiceWebsiteLayout({
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 selection:bg-slate-900 selection:text-white">
-      {/* 1. Global Multi-Service Navigation Switcher Bar */}
-      <ServiceSwitcher currentServiceId={serviceId} />
-
-      {/* 2. Division Specific Sub-Navbar */}
+      {/* Division Specific Navbar */}
       <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/90 shadow-sm transition-all">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 sm:h-20">
@@ -387,7 +390,7 @@ export function ServiceWebsiteLayout({
       {/* 3. HERO SECTION */}
       <section
         id="overview"
-        className={`relative bg-gradient-to-b ${currentTheme.heroBg} text-white pt-14 pb-24 sm:pt-20 sm:pb-32 px-4 sm:px-6 lg:px-8 overflow-hidden`}
+        className={`relative bg-gradient-to-b ${currentTheme.heroBg} text-white pt-8 pb-14 sm:pt-12 sm:pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden`}
       >
         {/* Thematic Ambient Glow Orbs */}
         <div
@@ -396,51 +399,83 @@ export function ServiceWebsiteLayout({
         <div className="absolute -bottom-10 right-10 w-96 h-96 bg-white/5 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-7xl mx-auto relative z-10">
-          <div className="max-w-3xl space-y-6 text-center sm:text-left">
-            {/* Compliance Badge */}
-            <div
-              className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold backdrop-blur-md border ${currentTheme.badgeClass}`}
-            >
-              <DivisionBadgeIcon className="w-4 h-4" />
-              <span>{compliancePill}</span>
+          <div className={heroImage ? "grid grid-cols-1 lg:grid-cols-12 gap-10 xl:gap-14 items-center" : ""}>
+            <div className={`${heroImage ? "lg:col-span-7" : "max-w-3xl"} space-y-6 text-center sm:text-left`}>
+              {/* Compliance Badge */}
+              <div
+                className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold backdrop-blur-md border ${currentTheme.badgeClass}`}
+              >
+                <DivisionBadgeIcon className="w-4 h-4" />
+                <span>{compliancePill}</span>
+              </div>
+
+              {/* Headline */}
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.15] text-white">
+                {heroHeadline}{" "}
+                <span
+                  className={`text-transparent bg-clip-text bg-gradient-to-r ${currentTheme.accentGradient}`}
+                >
+                  {heroHeadlineHighlight}
+                </span>
+              </h1>
+
+              {/* Subtitle */}
+              <p className="text-base sm:text-lg text-slate-200 leading-relaxed font-normal max-w-2xl">
+                {heroSubtitle}
+              </p>
+
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row items-center gap-4 pt-3">
+                <a
+                  href="#contact"
+                  className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 py-3.5 px-8 rounded-full text-sm font-extrabold shadow-lg transition-transform hover:scale-[1.02] ${currentTheme.primaryBtn}`}
+                >
+                  <span>{heroCtaText}</span>
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+
+                <a
+                  href="#estimator"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 py-3.5 px-7 rounded-full text-sm font-semibold text-white bg-white/10 hover:bg-white/15 border border-white/20 backdrop-blur-md transition-all"
+                >
+                  <Sparkles className="w-4 h-4 text-slate-300" />
+                  <span>{heroSecondaryCtaText}</span>
+                </a>
+              </div>
             </div>
 
-            {/* Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.12] text-white">
-              {heroHeadline}{" "}
-              <span
-                className={`text-transparent bg-clip-text bg-gradient-to-r ${currentTheme.accentGradient}`}
-              >
-                {heroHeadlineHighlight}
-              </span>
-            </h1>
+            {heroImage && (
+              <div className="lg:col-span-5 relative mt-6 lg:mt-0">
+                <div className="relative rounded-3xl overflow-hidden border border-white/20 shadow-2xl bg-white/5 backdrop-blur-md group">
+                  <div className="relative aspect-[16/10] w-full">
+                    <Image
+                      src={getAssetPath(heroImage)}
+                      alt={heroImageAlt || heroHeadline}
+                      fill
+                      priority
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
+                  </div>
 
-            {/* Subtitle */}
-            <p className="text-base sm:text-lg text-slate-200 leading-relaxed font-normal max-w-2xl">
-              {heroSubtitle}
-            </p>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row items-center gap-4 pt-3">
-              <a
-                href="#contact"
-                className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 py-3.5 px-8 rounded-full text-sm font-extrabold shadow-lg transition-transform hover:scale-[1.02] ${currentTheme.primaryBtn}`}
-              >
-                <span>{heroCtaText}</span>
-                <ArrowRight className="w-4 h-4" />
-              </a>
-
-              <a
-                href="#estimator"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 py-3.5 px-7 rounded-full text-sm font-semibold text-white bg-white/10 hover:bg-white/15 border border-white/20 backdrop-blur-md transition-all"
-              >
-                <Sparkles className="w-4 h-4 text-slate-300" />
-                <span>{heroSecondaryCtaText}</span>
-              </a>
-            </div>
+                  {/* Floating Micro Status Badge */}
+                  <div className="absolute bottom-4 left-4 right-4 p-3 rounded-2xl bg-slate-950/85 backdrop-blur-md border border-white/15 flex items-center justify-between text-xs">
+                    <div className="flex items-center gap-2">
+                      <span className="w-2.5 h-2.5 rounded-full bg-teal-400 animate-pulse" />
+                      <span className="font-semibold text-slate-200">
+                        {heroImageBadge || "EHR / PMS Integrated"}
+                      </span>
+                    </div>
+                    <span className="text-[11px] font-mono text-teal-400 font-bold">
+                      HIPAA • 98.6%
+                    </span>
+                  </div>
+                </div>
+              </div>
+            )}
 
             {/* Stats Row */}
-            <div className="pt-8 grid grid-cols-2 sm:grid-cols-4 gap-4 border-t border-white/10">
+            <div className={`${heroImage ? "lg:col-span-12" : ""} pt-8 grid grid-cols-2 sm:grid-cols-4 gap-4 border-t border-white/10 mt-6`}>
               {heroStats.map((stat, idx) => (
                 <div key={idx} className="text-center sm:text-left">
                   <div
@@ -576,44 +611,46 @@ export function ServiceWebsiteLayout({
         </div>
       </section>
 
-      {/* 7. WHY CHOOSE US & METRICS */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-slate-900 text-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center max-w-3xl mx-auto mb-14">
-            <span
-              className={`inline-block text-xs font-extrabold uppercase tracking-widest px-3 py-1 rounded-full mb-3 ${currentTheme.badgeClass}`}
-            >
-              The InsureTech Advantage
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-              {whyChooseUsTitle}
-            </h2>
-            <p className="mt-3 text-base text-slate-300">{whyChooseUsSubtitle}</p>
-          </div>
+      {/* 7. WHY CHOOSE US & METRICS (rendered if whyChooseUsPoints provided) */}
+      {whyChooseUsPoints && whyChooseUsPoints.length > 0 && (
+        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-slate-900 text-white">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center max-w-3xl mx-auto mb-14">
+              <span
+                className={`inline-block text-xs font-extrabold uppercase tracking-widest px-3 py-1 rounded-full mb-3 ${currentTheme.badgeClass}`}
+              >
+                The InsureTech Advantage
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+                {whyChooseUsTitle}
+              </h2>
+              <p className="mt-3 text-base text-slate-300">{whyChooseUsSubtitle}</p>
+            </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {whyChooseUsPoints.map((point, idx) => {
-              const Icon = point.icon;
-              return (
-                <div
-                  key={idx}
-                  className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-white/20 transition-colors"
-                >
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {whyChooseUsPoints.map((point, idx) => {
+                const Icon = point.icon;
+                return (
                   <div
-                    className={`w-10 h-10 rounded-xl flex items-center justify-center mb-4 ${currentTheme.stepBadge}`}
+                    key={idx}
+                    className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-white/20 transition-colors"
                   >
-                    <Icon className="w-5 h-5" />
+                    <div
+                      className={`w-10 h-10 rounded-xl flex items-center justify-center mb-4 ${currentTheme.stepBadge}`}
+                    >
+                      <Icon className="w-5 h-5" />
+                    </div>
+                    <h4 className="text-base font-bold text-white">{point.title}</h4>
+                    <p className="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
+                      {point.desc}
+                    </p>
                   </div>
-                  <h4 className="text-base font-bold text-white">{point.title}</h4>
-                  <p className="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
-                    {point.desc}
-                  </p>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* 8. TESTIMONIALS & CASE ACHIEVEMENTS */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">

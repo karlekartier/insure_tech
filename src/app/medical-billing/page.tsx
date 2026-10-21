@@ -4,6 +4,7 @@ import React from "react";
 import { ServiceWebsiteLayout } from "@/components/ServiceWebsiteLayout";
 import { MedicalBillingEstimator } from "@/components/estimators/MedicalBillingEstimator";
 import { MedicalBillingServiceTracks } from "@/components/MedicalBillingServiceTracks";
+import { MedicalBillingCommitment } from "@/components/MedicalBillingCommitment";
 import { ClaimToPaymentFlow } from "@/components/ClaimToPaymentFlow";
 import {
   Stethoscope,
@@ -43,6 +44,9 @@ export default function MedicalBillingPage() {
         { value: "<24h", label: "Payment Posting SLA" },
         { value: "100%", label: "HIPAA Title II & HITECH Compliant" },
       ]}
+      heroImage="/images/med_billing_hero_vector.jpg"
+      heroImageAlt="Medical Billing and Revenue Cycle Management Solutions Vector Illustration"
+      heroImageBadge="EHR / PMS Integrated • HIPAA Secured"
       capabilitiesTitle="Our Services"
       capabilitiesSubtitle="We provide reliable and efficient medical billing and revenue cycle management solutions designed to help healthcare providers streamline their billing operations, improve workflow efficiency, and focus on patient care."
       capabilities={[
@@ -161,7 +165,10 @@ export default function MedicalBillingPage() {
       contactSubtitle="Looking for a reliable medical billing partner? Let's discuss your requirements and build a smarter revenue cycle together."
       extraSections={
         <div className="space-y-16">
-          {/* Detailed 3-Track Sub-Services Breakdown & Our Commitment from Document */}
+          {/* Why Choose Us & Our Commitment Showcase with Process Vector Graphic */}
+          <MedicalBillingCommitment />
+
+          {/* Detailed 3-Track Sub-Services Breakdown */}
           <MedicalBillingServiceTracks />
 
           {/* Interactive 8-Stage Claim to Payment Flow Explorer */}
@@ -213,30 +220,6 @@ export default function MedicalBillingPage() {
           step: "08",
           title: "Denial Resolution & A/R Follow-Up",
           desc: "Appeal denied claims within 48 hours with clinical records and actively follow up on unpaid balances.",
-        },
-      ]}
-      whyChooseUsTitle="Accuracy. Efficiency. Reliability."
-      whyChooseUsSubtitle="We combine credentialed medical billing and coding professionals, structured processes, and technology-enabled solutions to deliver quality support tailored to each practice."
-      whyChooseUsPoints={[
-        {
-          title: "98.6% Clean Claim Rate",
-          desc: "Triple-layer algorithmic scrubbing identifies errors prior to payer transmission, eliminating avoidable administrative denials.",
-          icon: Award,
-        },
-        {
-          title: "Full HIPAA Title II Security",
-          desc: "Encrypted data pipelines, role-based access controls, and audited workstations safeguard Protected Health Information (PHI).",
-          icon: ShieldCheck,
-        },
-        {
-          title: "EHR / PMS Compatibility",
-          desc: "We work directly inside your existing software: Epic, Cerner, AthenaHealth, eClinicalWorks, Kareo, NextGen, and AdvancedMD.",
-          icon: HeartPulse,
-        },
-        {
-          title: "Transparent Operational SLAs",
-          desc: "Claims submitted within 24-48 hours, payments posted within 24 hours, and denials appealed with clinical records in 48 hours.",
-          icon: Clock,
         },
       ]}
       testimonialsTitle="Provider & Practice Proof Points"

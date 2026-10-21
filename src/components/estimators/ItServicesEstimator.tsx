@@ -108,7 +108,7 @@ export function ItServicesEstimator() {
             <div className="flex justify-between items-center text-sm">
               <span className="font-semibold text-slate-700">Estimated Users / Workload:</span>
               <span className="font-extrabold text-cyan-700 font-mono text-base bg-cyan-50 px-3 py-1 rounded-full border border-cyan-200">
-                {scale.toLocaleString()} Active Users / Day
+                {scale.toLocaleString("en-US")} Active Users / Day
               </span>
             </div>
             <input

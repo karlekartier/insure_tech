@@ -96,7 +96,7 @@ export function PublicationEstimator() {
             <div className="flex justify-between items-center text-sm">
               <span className="font-semibold text-slate-700">Estimated Monthly Page / Article Volume:</span>
               <span className="font-extrabold text-amber-800 font-mono text-base bg-amber-50 px-3 py-1 rounded-full border border-amber-200">
-                {pageVolume.toLocaleString()} Pages / Month
+                {pageVolume.toLocaleString("en-US")} Pages / Month
               </span>
             </div>
             <input

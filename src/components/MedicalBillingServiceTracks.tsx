@@ -379,29 +379,6 @@ export function MedicalBillingServiceTracks() {
         </div>
       )}
 
-      {/* Our Commitment Callout Banner from Document */}
-      <div className="mt-12 bg-gradient-to-br from-[#02211c] via-[#04332c] to-[#011a16] rounded-3xl p-8 sm:p-10 text-white shadow-xl border border-teal-500/30 flex flex-col md:flex-row md:items-center justify-between gap-6 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-80 h-80 bg-teal-500/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="space-y-3 max-w-2xl relative z-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-teal-500/20 text-teal-300 border border-teal-500/30">
-            <Sparkles className="w-3.5 h-3.5 text-teal-400" />
-            <span>Our Commitment</span>
-          </div>
-          <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white">
-            Simplifying Healthcare Billing Operations
-          </h3>
-          <p className="text-sm sm:text-base text-slate-200 leading-relaxed font-normal">
-            Our goal is to simplify healthcare billing operations through reliable processes, transparent communication, quality-focused service, and scalable solutions.
-          </p>
-        </div>
-        <a
-          href="#contact"
-          className="relative z-10 inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full text-xs sm:text-sm font-extrabold bg-teal-500 hover:bg-teal-400 text-slate-950 shadow-lg shadow-teal-500/25 transition-all shrink-0 cursor-pointer"
-        >
-          <span>Partner With Us</span>
-          <ArrowRight className="w-4 h-4" />
-        </a>
-      </div>
 
       {/* Essential Clinical Distinction Callout from Attached Document */}
       <div className="mt-8 p-5 rounded-2xl bg-amber-50/70 border border-amber-200/80 text-amber-950 text-xs flex flex-col sm:flex-row sm:items-center justify-between gap-3">

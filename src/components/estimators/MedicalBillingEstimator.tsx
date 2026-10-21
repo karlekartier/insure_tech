@@ -94,7 +94,7 @@ export function MedicalBillingEstimator() {
               <div className="flex justify-between items-center text-xs">
                 <span className="font-semibold text-slate-700">Monthly Claims Count:</span>
                 <span className="font-mono font-bold text-teal-800 bg-teal-50 px-2 py-0.5 rounded border border-teal-200">
-                  {claimsCount.toLocaleString()} Claims
+                  {claimsCount.toLocaleString("en-US")} Claims
                 </span>
               </div>
               <input
@@ -167,11 +167,11 @@ export function MedicalBillingEstimator() {
               </span>
               <div className="flex items-baseline gap-2 mt-1">
                 <span className="text-3xl sm:text-4xl font-extrabold text-white font-mono">
-                  +${annualRecovered.toLocaleString()}
+                  +${annualRecovered.toLocaleString("en-US")}
                 </span>
               </div>
               <span className="text-xs text-teal-400 block mt-1 font-mono">
-                approx. +${monthlyRecovered.toLocaleString()} / month recovered
+                approx. +${monthlyRecovered.toLocaleString("en-US")} / month recovered
               </span>
             </div>
 
